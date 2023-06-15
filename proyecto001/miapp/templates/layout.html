@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+        | Andres Rejas
+    </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <header>
+        <div id="logotipo">
+            <img src="{% static 'images/LogoDjango.png' %}">
+            <h1>Proyecto Web (LP3)</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'inicio' %}">Inicio</a>
+            </li>
+            <li>
+                <a href="{% url 'saludo' %}">Mensaje de saludo</a>
+            </li>
+            <li>
+                <a href="{% url 'rango' %}">Mostrar números [a,b]</a>
+            </li>
+            <li>
+                <a href="{% url 'rango2' %}"> Mostrar Números [10,15]</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+            {% block content %}
+                <strong>Contenido en layout (Padre)</strong>
+            {% endblock %}
+        </div>
+    </div>
+    <footer>
+        UNTELS - Lenguaje de Programación III &copy; David Rosado - {% now "d/m/Y h:m:s" %}
+    </footer>
+</body>
+</html>
